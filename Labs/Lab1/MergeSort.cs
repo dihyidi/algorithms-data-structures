@@ -27,19 +27,15 @@ namespace Lab1
             };
             var timer = Stopwatch.StartNew();
             
-            RecursiveMerge(result, 0, comparables.Length - 1);
+            RecursiveMerge(result, 0, comparables.Length - 1, order);
             
             timer.Stop();
             result.Time = timer.Elapsed;
-            
-            result.Result = order == OrderBy.ASC
-                ? result.Result
-                : result.Result.Reverse().ToArray();
-            
+
             return result;
         }
         
-        private static void DoMerge(SortResult result, int left, int mid, int right)
+        private static void DoMerge(SortResult result, int left, int mid, int right, OrderBy order)
         {
             var temp = new IComparable[result.Result.Length];
             int i;
@@ -49,9 +45,11 @@ namespace Lab1
             var tmpPos = left;
             var numElements = right - left + 1;
 
+            var orderBy = order == OrderBy.ASC;
+
             while (left <= leftEnd && mid <= right)
             {
-                if (array[left].CompareTo(array[mid]) <= 0)
+                if (orderBy.Equals(array[left].CompareTo(array[mid]) <= 0))
                 {
                     temp[tmpPos++] = array[left++];
                 }
@@ -79,15 +77,15 @@ namespace Lab1
             }
         }
 
-        private static void RecursiveMerge(SortResult result, int left, int right)
+        private static void RecursiveMerge(SortResult result, int left, int right, OrderBy order)
         {
             if (right <= left) return;
 
             var mid = (right + left) / 2;
-            RecursiveMerge(result, left, mid);
-            RecursiveMerge(result, mid + 1, right);
+            RecursiveMerge(result, left, mid, order);
+            RecursiveMerge(result, mid + 1, right, order);
 
-            DoMerge(result, left, mid + 1, right);
+            DoMerge(result, left, mid + 1, right, order);
         }
     }
 }
