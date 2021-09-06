@@ -18,7 +18,7 @@ namespace Lab1
     
     public static class MergeSort
     {
-        public static SortResult Sort(IEnumerable<IComparable> array)
+        public static SortResult Sort(IEnumerable<IComparable> array, OrderBy order)
         {
             var comparables = array as IComparable[] ?? array.ToArray();
             var result = new SortResult
@@ -31,6 +31,11 @@ namespace Lab1
             
             timer.Stop();
             result.Time = timer.Elapsed;
+            
+            result.Result = order == OrderBy.ASC
+                ? result.Result
+                : result.Result.Reverse().ToArray();
+            
             return result;
         }
         
