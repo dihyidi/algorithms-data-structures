@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Lab2
 {
-    public class PriorityQueue<T>
+    public class PriorityQueue<T> : IEnumerable<T>
     {
         public PriorityQueue(IComparer<T> comparer, int capacity = DefaultCapacity)
         {
@@ -134,5 +135,14 @@ namespace Lab2
         private bool _isHeap;
         private const int DefaultCapacity = 6;
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ((IEnumerable<T>)_heap).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

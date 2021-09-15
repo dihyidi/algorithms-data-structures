@@ -22,6 +22,20 @@ namespace Tests
             //Assert
             Assert.Equal(expected, actual);
         }
+        
+        [Fact]
+        public void Pop_RemovesMaxPriorityItem()
+        {
+            //Arrange
+            var pq = SetupQueue();
+            var expected = new User(0, "user0");
+
+            //Act
+            pq.Pop();
+
+            //Assert
+            Assert.DoesNotContain(expected, pq);
+        }
 
         private static PriorityQueue<User> SetupQueue()
         {
