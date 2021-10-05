@@ -12,17 +12,28 @@ namespace Lab3
             var third = prices.Count / 3;
 
             var sortedPrices = MergeSort.Sort(prices.Select(x => (IComparable)x), OrderBy.ASC).Result
-                .Select(x => (int)x).ToArray();
+                .Select(x => (int)x).AsEnumerable().Select(x => (double)x).ToArray();
 
-            var discountedPrices = sortedPrices
-                .TakeLast(third)
-                .Select(x => x * (0.01 * discount));
+            for (int i = prices.Count - 1, x = 0; x < third; x++, i--)
+            {
+                sortedPrices[i] *= discount * 0.01;
+            }
+            
+            double sum = 0;
+            foreach (var price in sortedPrices)
+            {
+                sum += price;
+            }
 
-            var sum = sortedPrices
-                          .SkipLast(third).Sum(x => x)
-                      + discountedPrices.Sum();
-
-            return sum;
+            // var discountedPrices = sortedPrices
+            //     .TakeLast(third)
+            //     .Select(x => x * (0.01 * discount));
+            //
+            // var sum = sortedPrices
+            //               .SkipLast(third).Sum(x => x)
+            //           + discountedPrices.Sum();
+            //
+             return sum;
         }
     }
 }
