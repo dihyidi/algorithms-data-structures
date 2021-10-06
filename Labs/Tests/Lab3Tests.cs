@@ -10,10 +10,10 @@ namespace Tests
         public void DiscountCounterCount_ReturnsMinSum()
         {
             //arrange
-            var prices = new List<int> { 10, 9, 7, 8, 3, 2, 1, 4, 5, 6 };
+            var prices = new int[] { 10, 9, 7, 8, 3, 2, 1, 4, 5, 6, 12, 13, 11, 14 };
             var discount = 40;
 
-            var expected = 38.8;
+            var expected = 75;
             
             //act
             var actual = DiscountCounter.Count(prices, discount);

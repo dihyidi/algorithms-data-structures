@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,9 +29,9 @@ namespace Lab3
             return File.WriteAllTextAsync(path, data);
         }
 
-        private static List<int> ConvertStringToInt(string str)
+        private static int[] ConvertStringToInt(string str)
         {
-            return str.Split(' ').Select(int.Parse).ToList();
+            return str.Split(' ').Select(int.Parse).ToArray();
         }
     }
 }
