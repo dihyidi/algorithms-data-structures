@@ -23,3 +23,9 @@ The input file discnt.in consists of two lines.
 
 Imprint
 The source discnt.out file must contain one number, the minimum amount that must be spent to purchase all products.
+
+-------------------------------------------------------------
+
+**Laboratory work 5 (Tarjan's algorithm)**
+
+Write Taryan's algorithm for finding components of strong connectivity in an oriented graph.
