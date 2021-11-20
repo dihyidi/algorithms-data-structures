@@ -6,7 +6,7 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(BinarySeparator.FindSolution("110011011", 5));
+            Console.WriteLine(BinarySeparator.FindSolution("11101010111", 7));
         }
     }
 }

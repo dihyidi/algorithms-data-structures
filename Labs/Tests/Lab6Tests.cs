@@ -9,7 +9,7 @@ namespace Tests
         public void BinarySeparator_ValidString_ReturnsNum()
         {
             var expected = 3;
-            var actual = BinarySeparator.FindSolution("110011011", 5);
+            var actual = BinarySeparator.FindSolution("11101010111", 7);
             Assert.Equal(expected, actual);
         }
         
@@ -17,7 +17,7 @@ namespace Tests
         public void BinarySeparator_InvalidString_ReturnsNoRes()
         {
             var expected = -1;
-            var actual = BinarySeparator.FindSolution("111011", 5);
+            var actual = BinarySeparator.FindSolution("0000000", 5);
             Assert.Equal(expected, actual);
         }
     }
