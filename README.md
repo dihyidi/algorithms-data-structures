@@ -43,3 +43,10 @@ The smallest number of pieces into which we can divide the input number, or -1 i
 **Limitation:**
 0 < len (X) < 100
 0 < N < 100
+
+-------------------------------------------------------------
+
+**Laboratory work 5 (Tarjan's algorithm)**
+
+Write Taryan's algorithm for finding components of strong connectivity in an oriented graph.
+
